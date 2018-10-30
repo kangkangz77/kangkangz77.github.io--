@@ -1,4 +1,4 @@
-name: "Yay internet!"
+name: "Kangkang Homepage"
 output_dir: "."
 navbar:
   title: "Home"
@@ -10,4 +10,5 @@ navbar:
     - icon: fa-github fa-lg
       href: http://github.com/kangkangz77/
 output:
-  html_document
+  html_document:
+    theme: flatly
