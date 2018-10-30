@@ -2,6 +2,9 @@ name: "Kangkang Homepage"
 output_dir: "."
 navbar:
   title: "Home"
+  left:
+    - text: "Resume"
+      href: Resume.html
   right:
     - text: "About"
       href: about.html
