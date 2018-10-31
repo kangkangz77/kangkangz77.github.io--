@@ -2,9 +2,4 @@
 title: "Resume"
 ---
 
-
->
-This is a personal site for Kangkang Zhang, a biostatistics master student at Columbia University.
-
->
-Email address and github page can be found in the top right corner.
+<img src="./image/resume.png" style="width:100%">

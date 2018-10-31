@@ -1,7 +1,20 @@
 ---
-title: "Holy cow!"
+title: ""
 ---
 
-### I have a webpage!
+<br/> 
+<br/> 
 
-And I can put all kinds of stuff on it!
+### Welcome to my page!
+
+<br/> 
+
+<img src="./image/picture.jpg" style="width:100%">
+
+<br/> 
+
+You can find interesting things here:
+
+* [My Resume](Resume.html)
+
+* [My Dashboard](dashboard.html)
