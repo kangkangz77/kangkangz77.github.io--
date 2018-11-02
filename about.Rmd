@@ -7,4 +7,7 @@ title: "About"
 This is a personal site for Kangkang Zhang, a biostatistics master student at Columbia University.
 
 >
+Dashboard prvides some insights about Instacart data. More information can be found  [here](http://p8105.com/dataset_instacart.html).
+
+>
 Email address and github page can be found in the top right corner.
