@@ -8,29 +8,66 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+
+data(instacart)
+instacart = instacart %>% 
+  janitor::clean_names() %>%
+  mutate(weekday = case_when(
+            order_dow == 1 ~ "Monday",
+            order_dow == 2 ~ "Tuesday",
+            order_dow == 3 ~ "Wednesday",
+            order_dow == 4 ~ "Thursday",
+            order_dow == 5 ~ "Friday",
+            order_dow == 6 ~ "Saturday",
+            order_dow == 0 ~ "Sunday"),
+          weekday = factor(weekday, ordered = TRUE, levels = 
+                          c("Monday", "Tuesday", "Wednesday", "Thursday", 
+                            "Friday", "Saturday", "Sunday")))
 ```
 
-Column {data-width=650}
+Column {data-width=600}
 -----------------------------------------------------------------------
 
-### Chart A
+### Distribution of number of products ordered in each department
 
-```{r}
+```{r, echo = FALSE}
+instacart %>%
+  distinct(department, product_id) %>% 
+  count(department) %>% 
+  mutate(department = forcats::fct_reorder(department, n)) %>% 
+  plot_ly(x = ~n, y = ~department, color = ~department, type = "bar", 
+          orientation = 'h', colors = "Set2") %>% 
+  layout(xaxis = list(title = " Number of products"),
+         yaxis = list(title = "Department"))
 
 ```
 
-Column {data-width=350}
+Column {data-width=400}
 -----------------------------------------------------------------------
 
-### Chart B
+### Distribution of number of items ordered in each day of the week
 
 ```{r}
-
+instacart %>%
+  count(weekday) %>% 
+  plot_ly(x = ~weekday, y = ~n, color = ~weekday, type = "bar",
+          colors = "Set2") %>% 
+  layout(xaxis = list(title = " Day of the week"),
+         yaxis = list(title = "Number of items"))
 ```
 
-### Chart C
+### Distribution of the time when order placed in each day of the week
 
 ```{r}
-
+instacart %>%
+  plot_ly(y = ~order_hour_of_day, x = ~weekday, color = ~weekday, type = "box", 
+          colors = "Set2") %>% 
+    layout(xaxis = list(title = " Day of the week"),
+         yaxis = list(title = "Hour of the day"))
 ```
+
+
 

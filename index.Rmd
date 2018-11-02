@@ -17,4 +17,4 @@ You can find interesting things here:
 
 * [My Resume](Resume.html)
 
-* [My Dashboard](dashboard.html)
+* [My Dashboard](Dashboard.html)
